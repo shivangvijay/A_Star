@@ -6,12 +6,12 @@
 #include <typeinfo>
 #include "Exploration.h"
 
-struct Point
-{
-    // in new co-ordinates
-    int x;
-    int y;
-};
+// struct Point
+// {
+//     // in new co-ordinates
+//     int x;
+//     int y;
+// };
 
 struct Obstacle
 {
@@ -27,8 +27,6 @@ public:
     Point convertOldToNewPoint(Point old);
 
     double convertOldToNewDiameter(double old);
-
-    std::vector<Point> getNeighbors(Point point);
 
     bool inObstacle(Point point, Obstacle obstacle);
 

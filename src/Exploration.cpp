@@ -1,6 +1,17 @@
 #include "Exploration.h"
 
 
+
+PointP Exploration::convertnewToOldPoint(PointP newPoint)
+{
+    struct PointP old_coordinates;
+    old_coordinates.x = (newPoint.y - 10)/10;
+    old_coordinates.y = (10 - newPoint.x)/10;
+
+    return old_coordinates;
+}
+
+
 // A Utility Function to check whether given cell (row, col)
 // is a valid cell or not.
 bool Exploration::isValid(int row, int col)
@@ -49,10 +60,15 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
     int col = dest.second;
 
     std::stack<Pair> Path;
+    std::stack<PointP> oldPointPath;
+
+
 
     while (!(cellDetails[row][col].parent_i == row && cellDetails[row][col].parent_j == col))
     {
         Path.push(std::make_pair(row, col));
+        PointP temp = convertnewToOldPoint({(double)row,(double)col});
+        oldPointPath.push(temp);
         int temp_row = cellDetails[row][col].parent_i;
         int temp_col = cellDetails[row][col].parent_j;
         row = temp_row;
@@ -60,11 +76,21 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
     }
 
     Path.push(std::make_pair(row, col));
+    PointP temp = convertnewToOldPoint({(double)row,(double)col});
+    oldPointPath.push(temp);
+
     while (!Path.empty())
     {
         std::pair<int, int> p = Path.top();
         Path.pop();
         printf("-> (%d,%d) ", p.first, p.second);
+    }
+
+    while (!oldPointPath.empty())
+    {
+        PointP p = oldPointPath.top();
+        oldPointPath.pop();
+        printf("-> (%f,%f) ", p.x, p.y);
     }
 
     return;

@@ -12,6 +12,20 @@
 // Creating a shortcut for int, int pair type
 typedef std::pair<int, int> Pair;
 
+struct Point
+{
+    // in new co-ordinates
+    int x;
+    int y;
+};
+
+struct PointP
+{
+    // in new co-ordinates
+    double x;
+    double y;
+};
+
 class Exploration
 {
 public:
@@ -34,6 +48,7 @@ public:
     void tracePath(cell cellDetails[][COL], Pair dest);
     void successor(int a, int b, Pair dest, int grid[ROW][COL], std::string direction);
     void aStarSearch(int grid[ROW][COL], Pair src, Pair dest);
+    PointP convertnewToOldPoint(PointP old);
 
 private:
     cell cellDetails[ROW][COL];

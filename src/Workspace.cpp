@@ -7,7 +7,7 @@ const double RESOLUTION = 0.1;
 Workspace::Workspace()
 {
     // Initialize the workspace with obstacles
-    vector<Obstacle> obs = {{{0, 0}, 1}};
+    vector<Obstacle> obs = {{{0, 0}, 0.1},{{-1, 0}, 0.1}};
     // std::cout << obs[0] << std::endl;
 
     for (int i = 0; i < obs.size(); i++)
@@ -33,7 +33,7 @@ Workspace::Workspace()
             {
                 if (inObstacle({i, j}, obstacle))
                 {
-                    grid[ROW - 1 - i][j] = 0;
+                    grid[i][j] = 0;
                     break;
                 }
             }
@@ -44,40 +44,14 @@ Workspace::Workspace()
 Point Workspace::convertOldToNewPoint(Point old)
 {
     struct Point new_coordinates;
-    new_coordinates.x = 10 * old.x + 10;
-    new_coordinates.y = 10 * old.y + 10;
+    new_coordinates.x = 10 - (10 * old.y);
+    new_coordinates.y = 10 + (10 * old.x);
     return new_coordinates;
 }
 
 double Workspace::convertOldToNewDiameter(double old)
 {
     return old * 10;
-}
-
-vector<Point> Workspace::getNeighbors(Point point)
-{
-    vector<Point> neighbors;
-
-    for (int dx = -1; dx <= 1; dx++)
-    {
-        for (int dy = -1; dy <= 1; dy++)
-        {
-            if (dx == 0 && dy == 0)
-            {
-                continue;
-            }
-
-            int x = point.x + dx;
-            int y = point.y + dy;
-
-            if (x >= 0 && x < ROW && y >= 0 && y < COL && grid[x][y] == 0)
-            {
-                neighbors.push_back({x, y});
-            }
-        }
-    }
-
-    return neighbors;
 }
 
 bool Workspace::inObstacle(Point point, Obstacle obstacle)
