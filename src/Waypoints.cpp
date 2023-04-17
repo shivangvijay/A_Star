@@ -1,50 +1,46 @@
 #include "Waypoints.h"
 
-
-
-  
-// Function to insert a new node.
-void Linkedlist::insertNode(PointP current, PointP parent, PointP startPoint)
+WaypointHandler::WaypointHandler()
 {
-    // Create the new Waypoint.
-    Waypoint* newNode = new Waypoint(current, parent, startPoint);
-  
-    // Assign to head
-    if (head == NULL) {
+    head = NULL;
+}
+
+void WaypointHandler::insertWaypoint(PointP current, PointP parent, PointP startPoint)
+{
+    Waypoint *newNode = new Waypoint(current, parent, startPoint);
+
+    if (head == NULL)
+    {
         head = newNode;
         return;
     }
-  
-    // Traverse till end of list
-    Waypoint* temp = head;
-    while (temp->next != NULL) {
-  
-        // Update temp
+
+    Waypoint *temp = head;
+    while (temp->next != NULL)
+    {
         temp = temp->next;
     }
-  
-    // Insert at the last.
+
     temp->next = newNode;
 }
-  
-// Function to print the
-// nodes of the linked list.
-void Linkedlist::printList()
+
+void WaypointHandler::printList()
 {
-    Waypoint* temp = head;
-  
-    // Check for empty list.
-    if (head == NULL) {
+    Waypoint *temp = head;
+
+    if (head == NULL)
+    {
         std::cout << "List empty" << std::endl;
         return;
     }
-  
+
     int count = 1;
-    // Traverse the list.
-    while (temp != NULL) {
-        std::cout << "Path co-ordinate " << count  << " -->  [" << temp->current.x << "," << temp->current.y 
-                << "],  Parent->  [" << temp->parent.x << "," << temp->parent.y << "], Manhathan-> " << temp->mahathan 
-                << ", Euclian-> " << temp->euclidian  << std::endl;
+
+    while (temp != NULL)
+    {
+        std::cout << "Path co-ordinate " << count << " -->  [" << temp->current.x << "," << temp->current.y
+                  << "],  Parent->  [" << temp->parent.x << "," << temp->parent.y << "], Manhathan-> " << temp->manhathan
+                  << ", Euclian-> " << temp->euclidean << std::endl;
         temp = temp->next;
         count = count + 1;
     }

@@ -1,31 +1,4 @@
-#include <iostream>
-#include <utility>
-#include <math.h>
-#include <stack>
-#include <set>
-#include <cfloat>
-#include <cstring>
-
-#define ROW 21
-#define COL 21
-
-// Creating a shortcut for int, int pair type
-typedef std::pair<int, int> Pair;
-
-struct Point
-{
-    // in new co-ordinates
-    int x;
-    int y;
-};
-
-struct PointP
-{
-    // in new co-ordinates
-    double x;
-    double y;
-};
-
+#include "Waypoints.h"
 class Exploration
 {
 public:
@@ -43,20 +16,6 @@ public:
 
     };
 
-    // struct Waypoint
-    // {
-    //     PointP current;
-    //     PointP parent;
-
-    //     double eucliadian;
-    //     double manhathan;
-
-    //     Waypoint(PointP current, PointP parent)
-    //     {
-    //         this->parent = parent;
-    //         this->current = current;
-    //     }
-    // };
     void Backtrace(cell cellDetails[][COL], Pair dest);
 
     bool isUnBlocked(int grid[ROW][COL], int row, int col);
@@ -69,7 +28,6 @@ public:
 
 private:
     cell cellDetails[ROW][COL];
-    // Waypoint waypoint;
     bool foundDest = false;
     bool closedList[ROW][COL];
     double gNew, hNew, fNew;

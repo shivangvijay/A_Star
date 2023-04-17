@@ -1,30 +1,22 @@
 #include "Workspace.h"
 
-using namespace std;
+// const double RESOLUTION = 0.1;
 
-const double RESOLUTION = 0.1;
-
-Workspace::Workspace()
+Workspace::Workspace(std::vector<Obstacle> obstacleInOld)
 {
-    // Initialize the workspace with obstacles
-    vector<Obstacle> obs = {{{0, 0}, 0.1},{{-1, 0}, 0.1}};
-    // std::cout << obs[0] << std::endl;
+    this->obstacleInOld = obstacleInOld;
+    this->initialize();
+}
 
-    for (int i = 0; i < obs.size(); i++)
+void Workspace::initialize()
+{
+    for (int i = 0; i < this->obstacleInOld.size(); i++)
     {
-        // std::cout << convertOldToNewDiameter(obs[i].diameter) << std::endl;
-        // std::cout << convertOldToNewPoint(obs[i].center) << std::endl;
-        obstacles.push_back({convertOldToNewPoint(obs[i].center), convertOldToNewDiameter(obs[i].diameter)});
+        obstacles.push_back({convertOldToNewPoint(this->obstacleInOld[i].center), convertOldToNewDiameter(this->obstacleInOld[i].diameter)});
     }
-
-    // obstacles.push_back({{10, 10}, 20});
-
-    // obstacles.push_back({{10, 10}, 3});
-    // obstacles.push_back({{15, 5}, 1.5});
 
     this->setAllToFreeSpace();
 
-    // Initialize the grid with obstacle values
     for (int i = 0; i < ROW; i++)
     {
         for (int j = 0; j < COL; j++)
@@ -57,10 +49,7 @@ double Workspace::convertOldToNewDiameter(double old)
 bool Workspace::inObstacle(Point point, Obstacle obstacle)
 {
     double number = obstacle.diameter / 2.0;
-    // std::cout << point.x+1 << "  " << point.y+1 << "   " << obstacle.center.x+1 << "    " << number << std::endl;
     double distance = sqrt(pow((point.x + 1) - (obstacle.center.x + 1), 2) + pow((point.y + 1) - (obstacle.center.y + 1), 2));
-    // std::cout << "Distance  :----> " << distance << std::endl;
-    // if()
     return distance <= (number);
 }
 
@@ -69,27 +58,26 @@ void Workspace::printGrid()
     int n = ROW;
     int m = COL;
 
-    // Iterating over all 1-D arrays in 2-D array
     for (int i = 0; i < n; i++)
     {
 
-        // Printing all elements in ith 1-D array
         for (int j = 0; j < m; j++)
         {
-
-            // Printing jth element of ith row
-            cout << grid[i][j] << " ";
+            std::cout << grid[i][j] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
+    std::cout << std::endl;
 }
 
 void Workspace::printObstacles()
 {
-    for (Obstacle obstacle : obstacles)
+    for (Obstacle obstacle : this->obstacleInOld)
     {
-        cout << "Obstacle at (" << obstacle.center.x << ", " << obstacle.center.y << ") with diameter " << obstacle.diameter << endl;
+        std::cout << "Obstacle at (" << obstacle.center.x << ", " << obstacle.center.y << ") with diameter " << obstacle.diameter << std::endl;
     }
+
+    std::cout << std::endl;
 }
 
 void Workspace::setAllToFreeSpace()
@@ -103,15 +91,9 @@ void Workspace::setAllToFreeSpace()
     }
 }
 
-int grid[ROW][COL] = {{0}};
-
-void Workspace::A_star()
+void Workspace::explore()
 {
-    Exploration obj;
-    Pair src = make_pair(20, 0);
-
-    // Destination is the left-most top-most corner
-    Pair dest = make_pair(0, 20);
-
-    obj.aStarSearch(grid, src, dest);
+    Pair src = std::make_pair(20, 0);
+    Pair dest = std::make_pair(0, 20);
+    exploration->aStarSearch(grid, src, dest);
 }

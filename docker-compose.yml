@@ -4,6 +4,6 @@ services:
     build:
       context: .
     image: miko:1.0.0
-    stdin_open: true                            #for iterative mode
-    tty: true                                   #for iterative mode
+    stdin_open: true                        
+    tty: true                                   
     container_name: Exploration

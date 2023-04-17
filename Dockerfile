@@ -1,5 +1,8 @@
 FROM alpine:3.17.0 AS build
 
+LABEL AUTHOR=shivangvijay@gmail.com
+LABEL VERSION=0.1
+
 RUN apk update && \
     apk add --no-cache \
     build-base \

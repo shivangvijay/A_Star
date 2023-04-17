@@ -1,6 +1,7 @@
-#include "Waypoints.h"
+// #include "Waypoints.h"
+#include "Exploration.h"
 
-Linkedlist finalList;
+WaypointHandler finalList;
 
 PointP Exploration::convertnewToOldPoint(PointP newPoint)
 {
@@ -55,7 +56,7 @@ double Exploration::calculateHValue(int row, int col, Pair dest)
 // to destination
 void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
 {
-    printf("\nThe Path is ");
+    // printf("\nThe Path is ");
     int row = dest.first;
     int col = dest.second;
 
@@ -95,11 +96,11 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
 
     //     PointP tempPoint = {(double)p.first , (double)p.second}; 
         
-    //     // finalList.insertNode(tempPoint, tempPoint);
+    //     // finalList.insertWaypoint(tempPoint, tempPoint);
 
     //     if(Path.size() == size-1)
     //     {
-    //         finalList.insertNode(tempPoint, tempPoint);
+    //         finalList.insertWaypoint(tempPoint, tempPoint);
     //     }
     //     else
     //     {
@@ -107,7 +108,7 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
     //         {
     //             std::pair<int, int> pp = Path.top();
     //             PointP tempPoint2 = {(double)pp.first , (double)pp.second};
-    //             finalList.insertNode(tempPoint2, tempPoint);
+    //             finalList.insertWaypoint(tempPoint2, tempPoint);
     //         }
     //     }
         
@@ -118,7 +119,7 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
     std::pair<int, int> p = Path.top();
     PointP startPoint = {(double)p.first , (double)p.second}; 
     startPoint = convertnewToOldPoint(startPoint);
-    finalList.insertNode(startPoint, startPoint, startPoint);
+    finalList.insertWaypoint(startPoint, startPoint, startPoint);
 
 
 
@@ -137,7 +138,7 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
             std::pair<int, int> pp = Path.top();
             PointP tempPoint2 = {(double)pp.first , (double)pp.second};
             tempPoint2 = convertnewToOldPoint(tempPoint2);
-            finalList.insertNode(tempPoint2, tempPoint, startPoint);
+            finalList.insertWaypoint(tempPoint2, tempPoint, startPoint);
 
         }
         
@@ -148,7 +149,7 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
     finalList.printList();
 
     // std::cout << std::endl;
-    printf("\nThe Path is real co-ordinates");
+    // printf("\nThe Path is real co-ordinates");
 
     // while (!oldPointPath.empty())
     // {
