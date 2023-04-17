@@ -23,7 +23,7 @@ void Workspace::initialize()
         {
             for (Obstacle obstacle : obstacles)
             {
-                if (inObstacle({i, j}, obstacle))
+                if (inObstacle({(double)i, (double)j}, obstacle))
                 {
                     grid[i][j] = 0;
                     break;

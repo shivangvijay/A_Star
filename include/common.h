@@ -15,14 +15,23 @@
 #define ROW 21
 #define COL 21
 
-// Creating a shortcut for int, int pair type
+/**
+ * @brief Creating a shortcut for int, int pair type
+ * 
+ */
 typedef std::pair<int, int> Pair;
+
+/**
+ * @brief Creating a shortcut for pair<int, pair<int, int>> type
+ * 
+ */
+typedef std::pair<double, std::pair<int, int>> pPair;
 
 struct Point
 {
     // in new co-ordinates
-    int x;
-    int y;
+    double x;
+    double y;
 };
 
 struct PointP
