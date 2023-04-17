@@ -1,0 +1,36 @@
+\hypertarget{Workspace_8h_source}{}\doxysection{Workspace.\+h}
+\label{Workspace_8h_source}\index{include/Workspace.h@{include/Workspace.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Exploration.h"{}}}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00008}\mbox{\hyperlink{classWorkspace}{00008}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkspace}{Workspace}}}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00010}00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{classWorkspace}{Workspace}}(std::vector<Obstacle>\ obstacleInOld);}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkspace_a2baaff81e89eea86a42e95c0bb22bb7c}{initialize}}();}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{structPoint}{Point}}\ \mbox{\hyperlink{classWorkspace_a3d840144df04df9b7a5577c88a8bfa3c}{convertOldToNewPoint}}(\mbox{\hyperlink{structPoint}{Point}}\ old);}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classWorkspace_ac746146b07ee92a1162851bf1c700b51}{convertOldToNewDiameter}}(\textcolor{keywordtype}{double}\ old);}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classWorkspace_a34851f710901e8491bcb1fe44eb386cd}{inObstacle}}(\mbox{\hyperlink{structPoint}{Point}}\ point,\ \mbox{\hyperlink{structObstacle}{Obstacle}}\ obstacle);}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkspace_a675129c19e9a21bc438aa177c7725bb4}{printGrid}}();}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkspace_addb00680e61f13d716fa3aa9949b92df}{printObstacles}}();}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkspace_abed6b0b86fc6b999cff236c2d391a50e}{setAllToFreeSpace}}();}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkspace_a5872df8cdc82577eded0ee29d7989c6f}{explore}}();}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00075}00075\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00076}00076\ \ \ \ \ std::vector<Obstacle>\ obstacles;}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00077}00077\ \ \ \ \ std::vector<Obstacle>\ obstacleInOld;}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{int}\ grid[ROW][COL]\ =\ \{\{0\}\};}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00079}00079\ \ \ \ \ std::unique\_ptr<Exploration>\ exploration\ =\ std::make\_unique<Exploration>();}
+\DoxyCodeLine{\Hypertarget{Workspace_8h_source_l00080}00080\ \};}
+
+\end{DoxyCode}

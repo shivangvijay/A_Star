@@ -1,17 +1,23 @@
 #pragma once
 #include "Waypoints.h"
+
+/**
+ * @brief Class which explore the workspace using A* algorithm
+ * 
+ */
 class Exploration
 {
 public:
     /**
-     * @brief Structure to hold the necessary parameters
-     *
+     * @brief Struct that holds necessary parameters for pathfinding
      */
     struct cell
     {
-        int parent_i, parent_j;
-
-        double f, g, h; // f = g + h
+        int parent_i; /**< The row index of the parent node */
+        int parent_j; /**< The column index of the parent node */
+        double f;     /**< The total cost of the cell (f = g + h) */
+        double g;     /**< The cost of the path from start node to current cell */
+        double h;     /**< The estimated cost of the path from current cell to end node */
     };
 
     /**
@@ -81,8 +87,6 @@ public:
      * @param dest The destination node.
      * @param grid The 2D array representing the grid.
      * @param direction The direction of movement from the parent node to the current node.
-     *
-     * @return void
      */
     void successor(int a, int b, Pair dest, int grid[ROW][COL], std::string direction);
 

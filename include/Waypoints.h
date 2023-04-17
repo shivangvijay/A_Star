@@ -3,24 +3,22 @@
 
 
 /**
- * @brief To store all the information regarding waypoints. 
- * Parent waypoint, Euclidean cumulative distance and Manhathan cumulative distance 
- * 
+ * @brief Struct to store information about waypoints
  */
 struct Waypoint {
 public:
-    Point parent;
-    Point current;
-    Waypoint* next;
-    double euclidean;
-    double manhathan;
+     Point parent; /**< The parent waypoint */
+    Point current; /**< The current waypoint */
+    Waypoint* next; /**< The next waypoint */
+    double euclidean; /**< The Euclidean distance from the start point to the current waypoint */
+    double manhathan; /**< The Manhattan distance from the start point to the current waypoint */
   
     /**
      * @brief Construct a new Waypoint object
      * 
-     * @param currentWaypoint
-     * @param parentWaypoint
-     * @param startPoint 
+     * @param current The current waypoint
+     * @param parent The parent waypoint
+     * @param startPoint The start point
      */
     Waypoint(Point current, Point parent, Point startPoint)
     {
@@ -32,12 +30,12 @@ public:
     }
 
 
-    /**
-     * @brief used to calculate Euclidean distance between start point and current waypoint
+     /**
+     * @brief Calculates the Euclidean distance between the current waypoint and the start point
      * 
-     * @param current 
-     * @param startPoint 
-     * @return double 
+     * @param current The current waypoint
+     * @param startPoint The start point
+     * @return double The Euclidean distance
      */
     double calculateEuclidean(Point current, Point startPoint)
     {
@@ -46,11 +44,11 @@ public:
 
 
     /**
-     * @brief used to calculate Manhathan distance between start point and current waypoint
+     * @brief Calculates the Manhattan distance between the current waypoint and the start point
      * 
-     * @param current 
-     * @param startPoint 
-     * @return double 
+     * @param current The current waypoint
+     * @param startPoint The start point
+     * @return double The Manhattan distance
      */
     double calculateManhathan(Point current, Point startPoint)
     {

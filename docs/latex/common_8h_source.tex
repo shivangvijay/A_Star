@@ -1,0 +1,49 @@
+\hypertarget{common_8h_source}{}\doxysection{common.\+h}
+\label{common_8h_source}\index{include/common.h@{include/common.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <cfloat>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <typeinfo>}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00016}00016\ \textcolor{preprocessor}{\#define\ ROW\ 21}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00017}00017\ \textcolor{preprocessor}{\#define\ COL\ 21}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00019}00019\ \textcolor{preprocessor}{\#define\ RESET\ \ \ \ "{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ BLUE\ \ \ \ \ "{}\(\backslash\)033[34m"{}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ MAGENTA\ \ "{}\(\backslash\)033[35m"{}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ RED\ \ \ \ \ \ "{}\(\backslash\)033[31m"{}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00023}00023\ \textcolor{preprocessor}{\#define\ YELLOW\ \ \ "{}\(\backslash\)033[33m"{}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ CYAN\ \ \ \ \ "{}\(\backslash\)033[36m"{}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ BOLDRED\ \ "{}\(\backslash\)033[1m\(\backslash\)033[31m"{}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00031}00031\ \textcolor{keyword}{typedef}\ std::pair<int,\ int>\ Pair;}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00037}00037\ \textcolor{keyword}{typedef}\ std::pair<double,\ std::pair<int,\ int>>\ pPair;}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00043}\mbox{\hyperlink{structPoint}{00043}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPoint}{Point}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00044}00044\ \{}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00049}\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{00049}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}};}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00055}\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{00055}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}};}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00056}00056\ \};}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00062}\mbox{\hyperlink{structObstacle}{00062}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structObstacle}{Obstacle}}}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00068}\mbox{\hyperlink{structObstacle_aa59cfccc918e1d3bc493b99f032db184}{00068}}\ \ \ \ \ \mbox{\hyperlink{structPoint}{Point}}\ \mbox{\hyperlink{structObstacle_aa59cfccc918e1d3bc493b99f032db184}{center}};}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00074}\mbox{\hyperlink{structObstacle_af5e644f5eb077f3bc43be6a47f7cf51c}{00074}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structObstacle_af5e644f5eb077f3bc43be6a47f7cf51c}{diameter}};}
+\DoxyCodeLine{\Hypertarget{common_8h_source_l00075}00075\ \};}
+
+\end{DoxyCode}
