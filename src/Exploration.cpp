@@ -1,6 +1,6 @@
-#include "Exploration.h"
+#include "Waypoints.h"
 
-
+Linkedlist finalList;
 
 PointP Exploration::convertnewToOldPoint(PointP newPoint)
 {
@@ -60,24 +60,137 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
     int col = dest.second;
 
     std::stack<Pair> Path;
-    std::stack<PointP> oldPointPath;
+    // std::stack<PointP> oldPointPath;
 
 
 
-    while (!(cellDetails[row][col].parent_i == row && cellDetails[row][col].parent_j == col))
+    while (!(cellDetails[row][col].parent_i == row && cellDetails[row][col].parent_j == col)) //while parameter become false when src destination comes
     {
+        // std::cout << "I am here --> " << row << " " << col << std::endl;
+
         Path.push(std::make_pair(row, col));
-        PointP temp = convertnewToOldPoint({(double)row,(double)col});
-        oldPointPath.push(temp);
+        // PointP temp = convertnewToOldPoint({(double)row,(double)col});
+        // oldPointPath.push(temp);
         int temp_row = cellDetails[row][col].parent_i;
         int temp_col = cellDetails[row][col].parent_j;
         row = temp_row;
         col = temp_col;
+
     }
 
+    // std::cout << "I am here --> " << row << " " << col << std::endl;
+
+
     Path.push(std::make_pair(row, col));
-    PointP temp = convertnewToOldPoint({(double)row,(double)col});
-    oldPointPath.push(temp);
+    // PointP temp = convertnewToOldPoint({(double)row,(double)col});
+    // oldPointPath.push(temp);
+
+    int size = Path.size();
+
+    // while (!Path.empty())
+    // {
+    //     std::pair<int, int> p = Path.top();
+    //     Path.pop();
+    //     printf("-> (%d,%d) ", p.first, p.second);
+
+    //     PointP tempPoint = {(double)p.first , (double)p.second}; 
+        
+    //     // finalList.insertNode(tempPoint, tempPoint);
+
+    //     if(Path.size() == size-1)
+    //     {
+    //         finalList.insertNode(tempPoint, tempPoint);
+    //     }
+    //     else
+    //     {
+    //         if(!Path.empty())
+    //         {
+    //             std::pair<int, int> pp = Path.top();
+    //             PointP tempPoint2 = {(double)pp.first , (double)pp.second};
+    //             finalList.insertNode(tempPoint2, tempPoint);
+    //         }
+    //     }
+        
+    //     std::cout << std::endl;
+    // }
+
+
+    std::pair<int, int> p = Path.top();
+    PointP startPoint = {(double)p.first , (double)p.second}; 
+    startPoint = convertnewToOldPoint(startPoint);
+    finalList.insertNode(startPoint, startPoint, startPoint);
+
+
+
+
+    while (!Path.empty())
+    {
+        std::pair<int, int> p = Path.top();
+        PointP tempPoint = {(double)p.first , (double)p.second}; 
+        tempPoint = convertnewToOldPoint(tempPoint);
+
+
+        Path.pop();
+
+        if(!Path.empty())
+        {
+            std::pair<int, int> pp = Path.top();
+            PointP tempPoint2 = {(double)pp.first , (double)pp.second};
+            tempPoint2 = convertnewToOldPoint(tempPoint2);
+            finalList.insertNode(tempPoint2, tempPoint, startPoint);
+
+        }
+        
+    }
+
+
+
+    finalList.printList();
+
+    // std::cout << std::endl;
+    printf("\nThe Path is real co-ordinates");
+
+    // while (!oldPointPath.empty())
+    // {
+    //     PointP p = oldPointPath.top();
+    //     oldPointPath.pop();
+    //     printf("-> (%f,%f) ", p.x, p.y);
+    // }
+
+    return;
+}
+
+void Exploration::Backtrace(cell cellDetails[][COL], Pair dest)
+{
+    printf("\nThe Path is ");
+    int row = dest.first;
+    int col = dest.second;
+
+    std::stack<Pair> Path;
+    // std::stack<PointP> oldPointPath;
+
+
+
+    while (!(cellDetails[row][col].parent_i == row && cellDetails[row][col].parent_j == col)) //while parameter become false when src destination comes
+    {
+        // std::cout << "I am here --> " << row << " " << col << std::endl;
+
+        Path.push(std::make_pair(row, col));
+        // PointP temp = convertnewToOldPoint({(double)row,(double)col});
+        // oldPointPath.push(temp);
+        int temp_row = cellDetails[row][col].parent_i;
+        int temp_col = cellDetails[row][col].parent_j;
+        row = temp_row;
+        col = temp_col;
+
+    }
+
+    // std::cout << "I am here --> " << row << " " << col << std::endl;
+
+
+    Path.push(std::make_pair(row, col));
+    // PointP temp = convertnewToOldPoint({(double)row,(double)col});
+    // oldPointPath.push(temp);
 
     while (!Path.empty())
     {
@@ -86,12 +199,15 @@ void Exploration::tracePath(cell cellDetails[][COL], Pair dest)
         printf("-> (%d,%d) ", p.first, p.second);
     }
 
-    while (!oldPointPath.empty())
-    {
-        PointP p = oldPointPath.top();
-        oldPointPath.pop();
-        printf("-> (%f,%f) ", p.x, p.y);
-    }
+    // std::cout << std::endl;
+    printf("\nThe Path is real co-ordinates");
+
+    // while (!oldPointPath.empty())
+    // {
+    //     PointP p = oldPointPath.top();
+    //     oldPointPath.pop();
+    //     printf("-> (%f,%f) ", p.x, p.y);
+    // }
 
     return;
 }
@@ -159,10 +275,30 @@ void Exploration::successor(int a, int b, Pair dest, int grid[ROW][COL], std::st
             // Set the Parent of the destination cell
             // cellDetails[a][b].parent_i = i;
             cellDetails[a][b].parent_i = number_a;
-
             cellDetails[a][b].parent_j = number_b;
+
+
+            // PointP Exploration::convertnewToOldPoint(PointP newPoint)
+            // {
+            //     struct PointP old_coordinates;
+            //     old_coordinates.x = (newPoint.y - 10)/10;
+            //     old_coordinates.y = (10 - newPoint.x)/10;
+
+            //     return old_coordinates;
+            // }
+
+            PointP parent = convertnewToOldPoint({(double)number_a,(double)number_b});
+            PointP current = convertnewToOldPoint({(double)a,(double)b});
+
+            // std::cout << "Current->  [" << a << "," << b << "]  Parent->  [" << number_a << "," << number_b << "]" << std::endl;
+
+
+            // waypoint.parent_i = parent.x;
+            // waypoint.parent_j = parent.y;
+            
             printf("The destination cell is found\n");
             flag = false;
+            // list.printList();
             tracePath(cellDetails, dest);
             foundDest = true;
             return;
@@ -199,6 +335,12 @@ void Exploration::successor(int a, int b, Pair dest, int grid[ROW][COL], std::st
                 cellDetails[a][b].parent_i = number_a;
 
                 cellDetails[a][b].parent_j = number_b;
+
+                PointP parent = convertnewToOldPoint({(double)number_a,(double)number_b});
+                PointP current = convertnewToOldPoint({(double)a,(double)b});
+
+                // std::cout << "Current->  [" << a << "," << b << "]  Parent->  [" << number_a << "," << number_b << "]" << std::endl;
+
             }
         }
     }
@@ -268,6 +410,16 @@ void Exploration::aStarSearch(int grid[ROW][COL], Pair src, Pair dest)
     cellDetails[i][j].h = 0.0;
     cellDetails[i][j].parent_i = i;
     cellDetails[i][j].parent_j = j;
+
+    PointP parent = convertnewToOldPoint({(double)i,(double)j});
+    PointP current = convertnewToOldPoint({(double)i,(double)j});
+
+    // PointP temp = convertnewToOldPoint({20.0,0.0});
+
+    // std::cout << i << " " <<  j << std::endl; 
+    // std::cout << "Current->  [" << i << "," << j << "]  Parent->  [" << i << "," << j << "]" << std::endl;
+
+    // std::cout << temp.x << " " << temp.y << std::endl;
 
     /*
      Create an open list having information as-

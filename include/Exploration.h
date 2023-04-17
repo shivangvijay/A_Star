@@ -40,7 +40,24 @@ public:
         int parent_i, parent_j;
         // f = g + h
         double f, g, h;
+
     };
+
+    // struct Waypoint
+    // {
+    //     PointP current;
+    //     PointP parent;
+
+    //     double eucliadian;
+    //     double manhathan;
+
+    //     Waypoint(PointP current, PointP parent)
+    //     {
+    //         this->parent = parent;
+    //         this->current = current;
+    //     }
+    // };
+    void Backtrace(cell cellDetails[][COL], Pair dest);
 
     bool isUnBlocked(int grid[ROW][COL], int row, int col);
     bool isDestination(int row, int col, Pair dest);
@@ -52,6 +69,7 @@ public:
 
 private:
     cell cellDetails[ROW][COL];
+    // Waypoint waypoint;
     bool foundDest = false;
     bool closedList[ROW][COL];
     double gNew, hNew, fNew;

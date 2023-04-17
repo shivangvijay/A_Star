@@ -1,0 +1,9 @@
+version: '3.2'
+services:
+  explore:
+    build:
+      context: .
+    image: miko:1.0.0
+    stdin_open: true                            #for iterative mode
+    tty: true                                   #for iterative mode
+    container_name: Exploration
