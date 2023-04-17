@@ -65,7 +65,15 @@ public:
     void tracePath(cell cellDetails[][COL], Pair dest);
 
     /**
-     * @brief Generates the successors of a cell in the grid.
+     * @brief Generates the successors of a cell in the grid. (8 successor)
+     *
+     *       N.W    N   N.E
+     *         \    |   /
+     *          \   |  /
+     *       W----current----E
+     *           /  |  \
+     *          /   |   \
+     *       S.W    S   S.E
      *
      * @param a The row index of the current cell.
      * @param b The column index of the current cell.
@@ -92,7 +100,7 @@ public:
      * @param newPoint
      * @return Point in old co-ordinate system
      */
-    PointP convertnewToOldPoint(PointP newPoint);
+    Point convertnewToOldPoint(Point newPoint);
 
 private:
     cell cellDetails[ROW][COL];
@@ -101,6 +109,7 @@ private:
     double gNew, hNew, fNew; // To store the 'g', 'h' and 'f' of the 8 successors
 
     std::set<pPair> openList;
-    bool reachedFlag = true;
     std::unique_ptr<WaypointHandler> wayPointList = std::make_unique<WaypointHandler>();
+    const std::vector<std::string> directions = {"North", "South", "East", "West", "North-East", "North-West", "South-East", "South-West"};
+    int successors[8][2] = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}, {-1, 1}, {-1, -1}, {1, 1}, {1, -1}};
 };

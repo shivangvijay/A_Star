@@ -8,8 +8,8 @@
  */
 struct Waypoint {
 public:
-    PointP parent;
-    PointP current;
+    Point parent;
+    Point current;
     Waypoint* next;
     double euclidean;
     double manhathan;
@@ -21,7 +21,7 @@ public:
      * @param parentWaypoint
      * @param startPoint 
      */
-    Waypoint(PointP current, PointP parent, PointP startPoint)
+    Waypoint(Point current, Point parent, Point startPoint)
     {
         this->parent = parent;
         this->current = current;
@@ -38,7 +38,7 @@ public:
      * @param startPoint 
      * @return double 
      */
-    double calculateEuclidean(PointP current, PointP startPoint)
+    double calculateEuclidean(Point current, Point startPoint)
     {
         return sqrt(pow((current.x - startPoint.x),2) + pow((current.y - startPoint.y),2));
     }
@@ -51,7 +51,7 @@ public:
      * @param startPoint 
      * @return double 
      */
-    double calculateManhathan(PointP current, PointP startPoint)
+    double calculateManhathan(Point current, Point startPoint)
     {
         return (abs(current.x - startPoint.x) + abs(current.y - startPoint.y));
     }
@@ -78,7 +78,7 @@ public:
      * @param parent 
      * @param startPoint 
      */
-    void insertWaypoint(PointP current, PointP parent,PointP startPoint);
+    void insertWaypoint(Point current, Point parent,Point startPoint);
 
     /**
      * @brief Method to print the complete list of waypoints

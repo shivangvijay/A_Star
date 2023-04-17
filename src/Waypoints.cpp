@@ -5,7 +5,7 @@ WaypointHandler::WaypointHandler()
     head = NULL;
 }
 
-void WaypointHandler::insertWaypoint(PointP current, PointP parent, PointP startPoint)
+void WaypointHandler::insertWaypoint(Point current, Point parent, Point startPoint)
 {
     Waypoint *newNode = new Waypoint(current, parent, startPoint);
 
