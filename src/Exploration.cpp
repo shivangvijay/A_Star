@@ -136,25 +136,25 @@ void Exploration::aStarSearch(int grid[ROW][COL], Pair src, Pair dest)
 {
     if (this->isValid(src.first, src.second) == false)
     {
-        std::cout << "Source is invalid" << std::endl;
+        std::cout << BOLDRED << "Source is invalid" << RESET << std::endl;
         return;
     }
 
     if (this->isValid(dest.first, dest.second) == false)
     {
-        std::cout << "Destination is invalid" << std::endl;
+        std::cout << BOLDRED << "Destination is invalid" << RESET << std::endl;
         return;
     }
 
     if (this->isUnBlocked(grid, src.first, src.second) == false || this->isUnBlocked(grid, dest.first, dest.second) == false)
     {
-        std::cout << "Source or the destination is blocked" << std::endl;
+        std::cout << BOLDRED << "Source or the destination is blocked" << RESET << std::endl;
         return;
     }
 
     if (this->isDestination(src.first, src.second, dest) == true)
     {
-        std::cout << "We are already at the destination" << std::endl;
+        std::cout << YELLOW << "We are already at the destination" << RESET << std::endl;
         return;
     }
 
@@ -205,7 +205,7 @@ void Exploration::aStarSearch(int grid[ROW][COL], Pair src, Pair dest)
     // When the destination cell is not found and the open list is empty, then we conclude that we failed to reach the destination cell.
     // This may happen when the there is no way to destination cell (due to blockages)
     if (foundDest == false)
-        std::cout << "Failed to explore the workspace" << std::endl;
+        std::cout << BOLDRED << "Failed to explore the workspace" << RESET << std::endl;
 
     return;
 }

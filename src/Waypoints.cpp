@@ -30,7 +30,7 @@ void WaypointHandler::printList()
 
     if (head == NULL)
     {
-        std::cout << "List empty" << std::endl;
+        std::cout << BOLDRED << "List empty" << RESET << std::endl;
         return;
     }
 
@@ -38,9 +38,9 @@ void WaypointHandler::printList()
 
     while (temp != NULL)
     {
-        std::cout << "Path co-ordinate " << count << " -->  [" << temp->current.x << "," << temp->current.y
-                  << "],  Parent->  [" << temp->parent.x << "," << temp->parent.y << "], Manhathan-> " << temp->manhathan
-                  << ", Euclian-> " << temp->euclidean << std::endl;
+        std::cout << YELLOW << "Path co-ordinate " << count << " -->  [" << temp->current.x << "," << temp->current.y
+                  << "]," << BLUE  << "   Parent->  [" << temp->parent.x << "," << temp->parent.y << "],"<< CYAN << "  Manhathan-> " << temp->manhathan
+                  << "," << RED << "  Euclian-> " << temp->euclidean << RESET << std::endl;
         temp = temp->next;
         count = count + 1;
     }

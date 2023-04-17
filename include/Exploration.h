@@ -1,3 +1,4 @@
+#pragma once
 #include "Waypoints.h"
 class Exploration
 {

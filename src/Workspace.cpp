@@ -63,18 +63,25 @@ void Workspace::printGrid()
 
         for (int j = 0; j < m; j++)
         {
-            std::cout << grid[i][j] << " ";
+            if (grid[i][j] == 0)
+            {
+                std::cout << BOLDRED << grid[i][j] << " ";
+            }
+            else
+            {
+                std::cout << RESET << grid[i][j] << " ";
+            }
         }
         std::cout << std::endl;
     }
-    std::cout << std::endl;
+    std::cout << RESET << std::endl;
 }
 
 void Workspace::printObstacles()
 {
     for (Obstacle obstacle : this->obstacleInOld)
     {
-        std::cout << "Obstacle at (" << obstacle.center.x << ", " << obstacle.center.y << ") with diameter " << obstacle.diameter << std::endl;
+        std::cout << MAGENTA << "Obstacle at (" << obstacle.center.x << ", " << obstacle.center.y << ") with diameter " << obstacle.diameter << RESET << std::endl;
     }
 
     std::cout << std::endl;
