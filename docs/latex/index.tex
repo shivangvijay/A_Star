@@ -1,3 +1,94 @@
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- \hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{okdsjsjsjsjkd}{okdsjsjsjsjkd}}\label{index_autotoc_md1}
+  
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{miko.png}
+\doxyfigcaption{Alt text}
+\end{DoxyImage}
+   \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Compilling Instructions}{Compilling Instructions}}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item If docker and docker-\/compose install in the system just you need to run one command\+:-\/
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ miko}
+\DoxyCodeLine{\$\ docker-\/compose\ up\ -\/-\/build}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item If docker and docker-\/compose not install, install by mentioned steps available in later part of this file.
+\item If don\textquotesingle{}t want to install or use the docker, follow below commands\+:-\/
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ miko}
+\DoxyCodeLine{\$\ mkdir\ build\ \&\&\ cd\ build}
+\DoxyCodeLine{\$\ cmake\ ..}
+\DoxyCodeLine{\$\ make}
+\DoxyCodeLine{\$\ ./Explore}
+
+\end{DoxyCode}
+
+
+{\bfseries{Note-\/}} I optimize the docker image by 2 step build, Check the size of docker image (miko\+:1.\+0.\+0) using {\ttfamily \$ docker images}, It is just $\sim$12.2 MB.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Install Docker\+:-\/}{Install Docker:-}}\label{index_autotoc_md2}
+Open Terminal and run the following commands\+:-\/
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ sudo\ apt-\/get\ update}
+\DoxyCodeLine{\$\ sudo\ apt-\/get\ install\ curl}
+\DoxyCodeLine{\$\ curl\ -\/fsSL\ https://get.docker.com/\ |\ sh}
+
+\end{DoxyCode}
+ Optional command\+:-\/ To run docker commands without sudo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ sudo\ usermod\ -\/aG\ docker\ <system\_username>}
+
+\end{DoxyCode}
+ The above command add the system username in the docker group, Restart the system to complete the process.
+
+After restart run
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ sudo\ service\ docker\ start\ }
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Install Docker Compose}{Install Docker Compose}}\label{index_autotoc_md3}
+Run the following commands in terminal\+:-\/
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ sudo\ curl\ -\/L\ https://github.com/docker/compose/releases/download/1.29.2/docker-\/compose-\/`uname\ -\/s`-\/`uname\ -\/m`\ -\/o\ /usr/local/bin/docker-\/compose}
+\DoxyCodeLine{\$\ sudo\ chmod\ +x\ /usr/local/bin/docker-\/compose}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Approch and Assumptions\+:-\/}{Approch and Assumptions:-}}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item The robot can only explore in rectangular workspace \mbox{[}(-\/1,-\/1); (-\/1,1); (1,1); (1,-\/1)\mbox{]}. Other space is Non-\/\+Traversable.
+\item The robot exploration start at (-\/1,-\/1) and ends at (1,1)
+\item If robot unable to reach at end(1,1), then robot fail to explore the workspace.
+\item I take a step size of 0.\+1 in both x and y directions.
+\item By considering above point make a grid of 21 Rows and 21 Columns.
+\item Robot can move in 8 direction (North, South, East, West, North-\/\+East, North-\/\+West, South-\/\+East, South-\/\+West)
+\item Done transformation from old co-\/ordinated system (User-\/facing) to new co-\/ordinates system (for calculation and algorithm implementation)
+\item Use A$\ast$ search to explore (-\/1,-\/1) to (1,1)
+\item User can change obstacle (center co-\/ordinates and diameter) in main.\+py file. (take input in old co-\/ordinate system only)
+\item Console prints of obstacle and Path details. (In old co-\/ordinate system)
+\end{DoxyItemize}
+
+{\bfseries{Note-\/}} I am using \"{}\+Old co-\/ordinate\"{}, it is same which is mentioned in problem statement (-\/1,1)-\/-\/\texorpdfstring{$>$}{>}(1,1). ~\newline
+ \"{}\+New co-\/ordinate system \"{} is tranlated, rotated and scaled with old one. I used for implementation of A$\ast$.\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md5}
+
+\begin{DoxyItemize}
+\item Documentation generator using Doxygen tool.
+\item Go to miko/docs/html and open index.\+html in browser to view the documentation.
+\item Main page is this README.\+md only. 
+\end{DoxyItemize}
