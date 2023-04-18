@@ -1,0 +1,488 @@
+\hypertarget{classExploration}{}\doxysection{Exploration Class Reference}
+\label{classExploration}\index{Exploration@{Exploration}}
+
+
+Class which explore the workspace using A$\ast$ algorithm.  
+
+
+
+
+{\ttfamily \#include $<$Exploration.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structExploration_1_1cell}{cell}}
+\begin{DoxyCompactList}\small\item\em Struct that holds necessary parameters for pathfinding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classExploration_ac28f0d18f4f06858a30dad9f2eac143d}{is\+Valid}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Method to check whether grid is valid or not Returns true if row number and column number is in range. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classExploration_ac6a5090863f2f25d9e2d1b4219a855e6}{is\+Un\+Blocked}} (int grid\mbox{[}ROW\mbox{]}\mbox{[}COL\mbox{]}, int row, int col)
+\begin{DoxyCompactList}\small\item\em Method to check whether the given cell is blocked or not Returns true if the cell is not blocked else false. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classExploration_ab2447726d08a20b798fa9985a3c1fff8}{is\+Destination}} (int row, int col, Pair dest)
+\begin{DoxyCompactList}\small\item\em Method to check whether destination grid has been reached or not. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classExploration_aff49da87a8f17ee1f9dcea4bff3d0415}{calculate\+HValue}} (int row, int col, Pair dest)
+\begin{DoxyCompactList}\small\item\em Class method to calculate the \textquotesingle{}h\textquotesingle{} heuristics. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classExploration_ae5cbb8709893de2a3f6c475695adabde}{trace\+Path}} (\mbox{\hyperlink{structExploration_1_1cell}{cell}} cell\+Details\mbox{[}$\,$\mbox{]}\mbox{[}COL\mbox{]}, Pair dest)
+\begin{DoxyCompactList}\small\item\em Class method to trace the path from the source to destination. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classExploration_a8417e091bc231f894e6da748417e7aef}{successor}} (int a, int b, Pair dest, int grid\mbox{[}ROW\mbox{]}\mbox{[}COL\mbox{]}, std\+::string direction)
+\begin{DoxyCompactList}\small\item\em Generates the successors of a cell in the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classExploration_a3ceb7c5c9b96b0d303f2a4f7b6f11e33}{a\+Star\+Search}} (int grid\mbox{[}ROW\mbox{]}\mbox{[}COL\mbox{]}, Pair src, Pair dest)
+\begin{DoxyCompactList}\small\item\em Class Method to find the shortest path between a given source cell to a destination cell according to A$\ast$ Search Algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{classExploration_a22b888a3d58eb45691963dcda9e0c9d5}{convertnew\+To\+Old\+Point}} (\mbox{\hyperlink{structPoint}{Point}} new\+Point)
+\begin{DoxyCompactList}\small\item\em convert new co-\/ordinate point into old co-\/ordinate point \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class which explore the workspace using A$\ast$ algorithm. 
+
+
+
+Definition at line \mbox{\hyperlink{Exploration_8h_source_l00008}{8}} of file \mbox{\hyperlink{Exploration_8h_source}{Exploration.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classExploration_a3ceb7c5c9b96b0d303f2a4f7b6f11e33}\label{classExploration_a3ceb7c5c9b96b0d303f2a4f7b6f11e33} 
+\index{Exploration@{Exploration}!aStarSearch@{aStarSearch}}
+\index{aStarSearch@{aStarSearch}!Exploration@{Exploration}}
+\doxysubsubsection{\texorpdfstring{aStarSearch()}{aStarSearch()}}
+{\footnotesize\ttfamily void Exploration\+::a\+Star\+Search (\begin{DoxyParamCaption}\item[{int}]{grid\mbox{[}\+ROW\mbox{]}\mbox{[}\+COL\mbox{]},  }\item[{Pair}]{src,  }\item[{Pair}]{dest }\end{DoxyParamCaption})}
+
+
+
+Class Method to find the shortest path between a given source cell to a destination cell according to A$\ast$ Search Algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & \\
+\hline
+{\em src} & \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Exploration_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{Exploration_8cpp_source}{Exploration.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00136\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classExploration_ac28f0d18f4f06858a30dad9f2eac143d}{isValid}}(src.first,\ src.second)\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00138\ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ std::cout\ <<\ BOLDRED\ <<\ \textcolor{stringliteral}{"{}Source\ is\ invalid"{}}\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classExploration_ac28f0d18f4f06858a30dad9f2eac143d}{isValid}}(dest.first,\ dest.second)\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00144\ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ std::cout\ <<\ BOLDRED\ <<\ \textcolor{stringliteral}{"{}Destination\ is\ invalid"{}}\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classExploration_ac6a5090863f2f25d9e2d1b4219a855e6}{isUnBlocked}}(grid,\ src.first,\ src.second)\ ==\ \textcolor{keyword}{false}\ ||\ this-\/>isUnBlocked(grid,\ dest.first,\ dest.second)\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00150\ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ std::cout\ <<\ BOLDRED\ <<\ \textcolor{stringliteral}{"{}Source\ or\ the\ destination\ is\ blocked"{}}\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classExploration_ab2447726d08a20b798fa9985a3c1fff8}{isDestination}}(src.first,\ src.second,\ dest)\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00156\ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ std::cout\ <<\ YELLOW\ <<\ \textcolor{stringliteral}{"{}We\ are\ already\ at\ the\ destination"{}}\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ memset(closedList,\ \textcolor{keyword}{false},\ \textcolor{keyword}{sizeof}(closedList));}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ ROW;\ i++)}
+\DoxyCodeLine{00165\ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ COL;\ j++)}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_ad4fcf5240505dd6db64d6bfa1da2901e}{f}}\ =\ FLT\_MAX;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_ad9033acd641e9be1a3558e16a6ca7445}{g}}\ =\ FLT\_MAX;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_a7607eca47b5e8630255040c98db1ca0e}{h}}\ =\ FLT\_MAX;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_a9d1335aacff4f2c0ea972a3de1722e92}{parent\_i}}\ =\ -\/1;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_a4ae4e73def25f81a2b427877a68591b1}{parent\_j}}\ =\ -\/1;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ Initialising\ the\ parameters\ of\ the\ starting\ node}}
+\DoxyCodeLine{00177\ \ \ \ \ i\ =\ src.first,\ j\ =\ src.second;}
+\DoxyCodeLine{00178\ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_ad4fcf5240505dd6db64d6bfa1da2901e}{f}}\ =\ 0.0;}
+\DoxyCodeLine{00179\ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_ad9033acd641e9be1a3558e16a6ca7445}{g}}\ =\ 0.0;}
+\DoxyCodeLine{00180\ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_a7607eca47b5e8630255040c98db1ca0e}{h}}\ =\ 0.0;}
+\DoxyCodeLine{00181\ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_a9d1335aacff4f2c0ea972a3de1722e92}{parent\_i}}\ =\ i;}
+\DoxyCodeLine{00182\ \ \ \ \ cellDetails[i][j].\mbox{\hyperlink{structExploration_1_1cell_a4ae4e73def25f81a2b427877a68591b1}{parent\_j}}\ =\ j;}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ openList.insert(std::make\_pair(0.0,\ std::make\_pair(i,\ j)));}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{while}\ (!openList.empty())}
+\DoxyCodeLine{00187\ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ pPair\ p\ =\ *openList.begin();}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ openList.erase(openList.begin());}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ i\ =\ p.second.first;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ j\ =\ p.second.second;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ closedList[i][j]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Loop\ through\ each\ successor\ and\ call\ the\ successor\ method}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ 8\ \&\&\ !foundDest;\ k++)}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ next\_i\ =\ i\ +\ successors[k][0];}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ next\_j\ =\ j\ +\ successors[k][1];}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classExploration_a8417e091bc231f894e6da748417e7aef}{successor}}(next\_i,\ next\_j,\ dest,\ grid,\ directions[k]);}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{//\ When\ the\ destination\ cell\ is\ not\ found\ and\ the\ open\ list\ is\ empty,\ then\ we\ conclude\ that\ we\ failed\ to\ reach\ the\ destination\ cell.}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ This\ may\ happen\ when\ the\ there\ is\ no\ way\ to\ destination\ cell\ (due\ to\ blockages)}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{if}\ (foundDest\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ std::cout\ <<\ BOLDRED\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ explore\ the\ workspace"{}}\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00211\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classExploration_aff49da87a8f17ee1f9dcea4bff3d0415}\label{classExploration_aff49da87a8f17ee1f9dcea4bff3d0415} 
+\index{Exploration@{Exploration}!calculateHValue@{calculateHValue}}
+\index{calculateHValue@{calculateHValue}!Exploration@{Exploration}}
+\doxysubsubsection{\texorpdfstring{calculateHValue()}{calculateHValue()}}
+{\footnotesize\ttfamily double Exploration\+::calculate\+HValue (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{Pair}]{dest }\end{DoxyParamCaption})}
+
+
+
+Class method to calculate the \textquotesingle{}h\textquotesingle{} heuristics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & \\
+\hline
+{\em col} & \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Exploration_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Exploration_8cpp_source}{Exploration.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keywordtype}{double})sqrt(}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ (row\ -\/\ dest.first)\ *\ (row\ -\/\ dest.first)\ +\ (col\ -\/\ dest.second)\ *\ (col\ -\/\ dest.second)));}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classExploration_a22b888a3d58eb45691963dcda9e0c9d5}\label{classExploration_a22b888a3d58eb45691963dcda9e0c9d5} 
+\index{Exploration@{Exploration}!convertnewToOldPoint@{convertnewToOldPoint}}
+\index{convertnewToOldPoint@{convertnewToOldPoint}!Exploration@{Exploration}}
+\doxysubsubsection{\texorpdfstring{convertnewToOldPoint()}{convertnewToOldPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPoint}{Point}} Exploration\+::convertnew\+To\+Old\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPoint}{Point}}}]{new\+Point }\end{DoxyParamCaption})}
+
+
+
+convert new co-\/ordinate point into old co-\/ordinate point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Point} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structPoint}{Point} in old co-\/ordinate system 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Exploration_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{Exploration_8cpp_source}{Exploration.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPoint}{Point}}\ old\_coordinates;}
+\DoxyCodeLine{00006\ \ \ \ \ old\_coordinates.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}\ =\ (newPoint.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}\ -\/\ 10)\ /\ 10;}
+\DoxyCodeLine{00007\ \ \ \ \ old\_coordinates.y\ =\ (10\ -\/\ newPoint.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}})\ /\ 10;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{return}\ old\_coordinates;}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classExploration_ab2447726d08a20b798fa9985a3c1fff8}\label{classExploration_ab2447726d08a20b798fa9985a3c1fff8} 
+\index{Exploration@{Exploration}!isDestination@{isDestination}}
+\index{isDestination@{isDestination}!Exploration@{Exploration}}
+\doxysubsubsection{\texorpdfstring{isDestination()}{isDestination()}}
+{\footnotesize\ttfamily bool Exploration\+::is\+Destination (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{Pair}]{dest }\end{DoxyParamCaption})}
+
+
+
+Method to check whether destination grid has been reached or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & \\
+\hline
+{\em col} & \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Exploration_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{Exploration_8cpp_source}{Exploration.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ ==\ dest.first\ \&\&\ col\ ==\ dest.second)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classExploration_ac6a5090863f2f25d9e2d1b4219a855e6}\label{classExploration_ac6a5090863f2f25d9e2d1b4219a855e6} 
+\index{Exploration@{Exploration}!isUnBlocked@{isUnBlocked}}
+\index{isUnBlocked@{isUnBlocked}!Exploration@{Exploration}}
+\doxysubsubsection{\texorpdfstring{isUnBlocked()}{isUnBlocked()}}
+{\footnotesize\ttfamily bool Exploration\+::is\+Un\+Blocked (\begin{DoxyParamCaption}\item[{int}]{grid\mbox{[}\+ROW\mbox{]}\mbox{[}\+COL\mbox{]},  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Method to check whether the given cell is blocked or not Returns true if the cell is not blocked else false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & \\
+\hline
+{\em row} & \\
+\hline
+{\em col} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Exploration_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{Exploration_8cpp_source}{Exploration.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (grid[row][col]\ ==\ 1)}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classExploration_ac28f0d18f4f06858a30dad9f2eac143d}\label{classExploration_ac28f0d18f4f06858a30dad9f2eac143d} 
+\index{Exploration@{Exploration}!isValid@{isValid}}
+\index{isValid@{isValid}!Exploration@{Exploration}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Exploration\+::is\+Valid (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Method to check whether grid is valid or not Returns true if row number and column number is in range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & \\
+\hline
+{\em col} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Exploration_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{Exploration_8cpp_source}{Exploration.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{return}\ (row\ >=\ 0)\ \&\&\ (row\ <\ ROW)\ \&\&\ (col\ >=\ 0)\ \&\&\ (col\ <\ COL);}
+\DoxyCodeLine{00015\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classExploration_a8417e091bc231f894e6da748417e7aef}\label{classExploration_a8417e091bc231f894e6da748417e7aef} 
+\index{Exploration@{Exploration}!successor@{successor}}
+\index{successor@{successor}!Exploration@{Exploration}}
+\doxysubsubsection{\texorpdfstring{successor()}{successor()}}
+{\footnotesize\ttfamily void Exploration\+::successor (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b,  }\item[{Pair}]{dest,  }\item[{int}]{grid\mbox{[}\+ROW\mbox{]}\mbox{[}\+COL\mbox{]},  }\item[{std\+::string}]{direction }\end{DoxyParamCaption})}
+
+
+
+Generates the successors of a cell in the grid. 
+
+(8 successor) \begin{DoxyVerb}  N.W    N   N.E
+    \    |   /
+     \   |  /
+  W----current----E
+      /  |  \
+     /   |   \
+  S.W    S   S.E
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}{Parameters}
+{\em a} & The row index of the current cell. \\
+\hline
+{\em b} & The column index of the current cell. \\
+\hline
+{\em dest} & The destination node. \\
+\hline
+{\em grid} & The 2D array representing the grid. \\
+\hline
+{\em direction} & The direction of movement from the parent node to the current node. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Exploration_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{Exploration_8cpp_source}{Exploration.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{int}\ number\_a,\ number\_b;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ 8;\ k++)}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ directions[k])}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ number\_a\ =\ a\ +\ (-\/1\ *\ successors[k][0]);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ number\_b\ =\ b\ +\ (-\/1\ *\ successors[k][1]);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ Only\ process\ this\ cell\ if\ this\ is\ a\ valid\ one}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classExploration_ac28f0d18f4f06858a30dad9f2eac143d}{isValid}}(a,\ b)\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00102\ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classExploration_ab2447726d08a20b798fa9985a3c1fff8}{isDestination}}(a,\ b,\ dest)\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[a][b].\mbox{\hyperlink{structExploration_1_1cell_a9d1335aacff4f2c0ea972a3de1722e92}{parent\_i}}\ =\ number\_a;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[a][b].\mbox{\hyperlink{structExploration_1_1cell_a4ae4e73def25f81a2b427877a68591b1}{parent\_j}}\ =\ number\_b;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classExploration_ae5cbb8709893de2a3f6c475695adabde}{tracePath}}(cellDetails,\ dest);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ foundDest\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (closedList[a][b]\ ==\ \textcolor{keyword}{false}\ \&\&\ this-\/>\mbox{\hyperlink{classExploration_ac6a5090863f2f25d9e2d1b4219a855e6}{isUnBlocked}}(grid,\ a,\ b)\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ gNew\ =\ cellDetails[number\_a][number\_b].\mbox{\hyperlink{structExploration_1_1cell_ad9033acd641e9be1a3558e16a6ca7445}{g}}\ +\ 1.0;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ hNew\ =\ \mbox{\hyperlink{classExploration_aff49da87a8f17ee1f9dcea4bff3d0415}{calculateHValue}}(a,\ b,\ dest);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ fNew\ =\ gNew\ +\ hNew;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cellDetails[a][b].f\ ==\ FLT\_MAX\ ||\ cellDetails[a][b].f\ >\ fNew)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ openList.insert(std::make\_pair(}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fNew,\ std::make\_pair(a,\ b)));}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ details\ of\ this\ cell}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[a][b].\mbox{\hyperlink{structExploration_1_1cell_ad4fcf5240505dd6db64d6bfa1da2901e}{f}}\ =\ fNew;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[a][b].\mbox{\hyperlink{structExploration_1_1cell_ad9033acd641e9be1a3558e16a6ca7445}{g}}\ =\ gNew;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[a][b].\mbox{\hyperlink{structExploration_1_1cell_a7607eca47b5e8630255040c98db1ca0e}{h}}\ =\ hNew;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[a][b].\mbox{\hyperlink{structExploration_1_1cell_a9d1335aacff4f2c0ea972a3de1722e92}{parent\_i}}\ =\ number\_a;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cellDetails[a][b].\mbox{\hyperlink{structExploration_1_1cell_a4ae4e73def25f81a2b427877a68591b1}{parent\_j}}\ =\ number\_b;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classExploration_ae5cbb8709893de2a3f6c475695adabde}\label{classExploration_ae5cbb8709893de2a3f6c475695adabde} 
+\index{Exploration@{Exploration}!tracePath@{tracePath}}
+\index{tracePath@{tracePath}!Exploration@{Exploration}}
+\doxysubsubsection{\texorpdfstring{tracePath()}{tracePath()}}
+{\footnotesize\ttfamily void Exploration\+::trace\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structExploration_1_1cell}{cell}}}]{cell\+Details\mbox{[}$\,$\mbox{]}\mbox{[}\+COL\mbox{]},  }\item[{Pair}]{dest }\end{DoxyParamCaption})}
+
+
+
+Class method to trace the path from the source to destination. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell\+Details} & \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Exploration_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{Exploration_8cpp_source}{Exploration.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ dest.first;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ col\ =\ dest.second;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ std::stack<Pair>\ Path;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{while}\ (!(cellDetails[row][col].parent\_i\ ==\ row\ \&\&\ cellDetails[row][col].parent\_j\ ==\ col))}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ Path.push(std::make\_pair(row,\ col));}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ temp\_row\ =\ cellDetails[row][col].\mbox{\hyperlink{structExploration_1_1cell_a9d1335aacff4f2c0ea972a3de1722e92}{parent\_i}};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ temp\_col\ =\ cellDetails[row][col].\mbox{\hyperlink{structExploration_1_1cell_a4ae4e73def25f81a2b427877a68591b1}{parent\_j}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ row\ =\ temp\_row;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ col\ =\ temp\_col;}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ Path.push(std::make\_pair(row,\ col));}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ Path.size();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ std::pair<int,\ int>\ p\ =\ Path.top();}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{structPoint}{Point}}\ startPoint\ =\ \{(double)p.first,\ (\textcolor{keywordtype}{double})p.second\};}
+\DoxyCodeLine{00063\ \ \ \ \ startPoint\ =\ \mbox{\hyperlink{classExploration_a22b888a3d58eb45691963dcda9e0c9d5}{convertnewToOldPoint}}(startPoint);}
+\DoxyCodeLine{00064\ \ \ \ \ wayPointList-\/>insertWaypoint(startPoint,\ startPoint,\ startPoint);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{while}\ (!Path.empty())}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::pair<int,\ int>\ p\ =\ Path.top();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structPoint}{Point}}\ parent\ =\ \{(double)p.first,\ (\textcolor{keywordtype}{double})p.second\};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ parent\ =\ \mbox{\hyperlink{classExploration_a22b888a3d58eb45691963dcda9e0c9d5}{convertnewToOldPoint}}(parent);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ Path.pop();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!Path.empty())}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::pair<int,\ int>\ pp\ =\ Path.top();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structPoint}{Point}}\ current\ =\ \{(double)pp.first,\ (\textcolor{keywordtype}{double})pp.second\};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ \mbox{\hyperlink{classExploration_a22b888a3d58eb45691963dcda9e0c9d5}{convertnewToOldPoint}}(current);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ wayPointList-\/>insertWaypoint(current,\ parent,\ startPoint);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ wayPointList-\/>printList();}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Exploration.\+h\item 
+src/Exploration.\+cpp\end{DoxyCompactItemize}

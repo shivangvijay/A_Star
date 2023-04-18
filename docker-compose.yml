@@ -1,0 +1,9 @@
+version: '3.2'
+services:
+  explore:
+    build:
+      context: .
+    image: miko:1.0.0
+    stdin_open: true                        
+    tty: true                                   
+    container_name: Exploration

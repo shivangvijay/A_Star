@@ -1,0 +1,53 @@
+\hypertarget{Waypoints_8cpp_source}{}\doxysection{Waypoints.\+cpp}
+\label{Waypoints_8cpp_source}\index{src/Waypoints.cpp@{src/Waypoints.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Waypoints.h"{}}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00003}\mbox{\hyperlink{classWaypointHandler_a963626cd9269047315909f2b1e9c2996}{00003}}\ \mbox{\hyperlink{classWaypointHandler_a963626cd9269047315909f2b1e9c2996}{WaypointHandler::WaypointHandler}}()}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00005}00005\ \ \ \ \ head\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00006}00006\ \}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00008}\mbox{\hyperlink{classWaypointHandler_a9c4262cc1ee70da8c298b9578302e157}{00008}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWaypointHandler_a9c4262cc1ee70da8c298b9578302e157}{WaypointHandler::insertWaypoint}}(\mbox{\hyperlink{structPoint}{Point}}\ current,\ \mbox{\hyperlink{structPoint}{Point}}\ parent,\ \mbox{\hyperlink{structPoint}{Point}}\ startPoint)}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{structWaypoint}{Waypoint}}\ *newNode\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structWaypoint}{Waypoint}}(current,\ parent,\ startPoint);}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00013}00013\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ head\ =\ newNode;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00016}00016\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{structWaypoint}{Waypoint}}\ *temp\ =\ head;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp-\/>\mbox{\hyperlink{structWaypoint_a564974121f597b1411321e944a1787a4}{next}}\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>\mbox{\hyperlink{structWaypoint_a564974121f597b1411321e944a1787a4}{next}};}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00022}00022\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00024}00024\ \ \ \ \ temp-\/>\mbox{\hyperlink{structWaypoint_a564974121f597b1411321e944a1787a4}{next}}\ =\ newNode;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00027}\mbox{\hyperlink{classWaypointHandler_ac136c6c93bb1505a75e7c10b74d1f9f8}{00027}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWaypointHandler_ac136c6c93bb1505a75e7c10b74d1f9f8}{WaypointHandler::printList}}()}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{structWaypoint}{Waypoint}}\ *temp\ =\ head;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00032}00032\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ std::cout\ <<\ BOLDRED\ <<\ \textcolor{stringliteral}{"{}List\ empty"{}}\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00040}00040\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ std::cout\ <<\ YELLOW\ <<\ \textcolor{stringliteral}{"{}Path\ co-\/ordinate\ "{}}\ <<\ count\ <<\ \textcolor{stringliteral}{"{}\ -\/-\/>\ \ ["{}}\ <<\ temp-\/>\mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ temp-\/>\mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}],"{}}\ <<\ BLUE\ \ <<\ \textcolor{stringliteral}{"{}\ \ \ Parent-\/>\ \ ["{}}\ <<\ temp-\/>\mbox{\hyperlink{structWaypoint_a50f3794351b4595e15f48732aa823c50}{parent}}.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ temp-\/>\mbox{\hyperlink{structWaypoint_a50f3794351b4595e15f48732aa823c50}{parent}}.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}\ <<\ \textcolor{stringliteral}{"{}],"{}}<<\ CYAN\ <<\ \textcolor{stringliteral}{"{}\ \ Manhathan-\/>\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{structWaypoint_a22bf48cb7c380ad13e2ecc873da5201c}{manhathan}}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ RED\ <<\ \textcolor{stringliteral}{"{}\ \ Euclian-\/>\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{structWaypoint_a3dafa5d4d151b9c595f26ab0b7a6bfe7}{euclidean}}\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>\mbox{\hyperlink{structWaypoint_a564974121f597b1411321e944a1787a4}{next}};}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ count\ =\ count\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Waypoints_8cpp_source_l00047}00047\ \}}
+
+\end{DoxyCode}

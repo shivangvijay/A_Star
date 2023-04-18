@@ -1,92 +1,88 @@
-# Miko
+# Miko (Shivang Vijay, shivangvijay@gmail.com)
+
+![Alt text](miko.png)
 
 
+## Compilling Instructions
 
-## Getting started
+Run in terminal
+````
+- git clone https://gitlab.com/shivangvijay/miko.git
+````
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- If docker and docker-compose install in the system just you need to run one command:- 
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+````
+$ cd miko
+$ docker-compose up --build
+````
 
-## Add your files
+- If docker and docker-compose not install, install by mentioned steps available in later part of this file.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+- If don't want to install or use the docker, follow below commands:-
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/shivangvijay/miko.git
-git branch -M main
-git push -uf origin main
-```
+````
+$ cd miko
+$ mkdir build && cd build
+$ cmake ..
+$ make
+$ ./Explore
+````
 
-## Integrate with your tools
+**Note-** I optimize the docker image by 2 step build, Check the size of docker image (miko:1.0.0) using ```` $ docker images ````, It is just ~12.2 MB.
 
-- [ ] [Set up project integrations](https://gitlab.com/shivangvijay/miko/-/settings/integrations)
+## Install Docker:-
 
-## Collaborate with your team
+Open Terminal and run the following commands:-
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+````
+$ sudo apt-get update
+$ sudo apt-get install curl
+$ curl -fsSL https://get.docker.com/ | sh
+````
+Optional command:- To run docker commands without sudo 
+````
+$ sudo usermod -aG docker <system_username>
+````
+The above command add the system username in the docker group, Restart the system to complete the process. 
 
-## Test and Deploy
+After restart run 
 
-Use the built-in continuous integration in GitLab.
+```` 
+$ sudo service docker start 
+````
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Install Docker Compose
 
-***
+Run the following commands in terminal:- 
 
-# Editing this README
+````
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+````
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## Approch and Assumptions:-
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+- The robot can only explore in rectangular workspace [(-1,-1); (-1,1); (1,1); (1,-1)]. Other space is Non-Traversable.
+- The robot exploration start at (-1,-1) and ends at (1,1)
+- If robot unable to reach at end(1,1), then robot fail to explore the workspace.
+- I take a step size of 0.1 in both x and y directions. 
+- By considering above point make a grid of 21 Rows and 21 Columns.
+- Robot can move in 8 direction (North, South, East, West, North-East, North-West, South-East, South-West)
+- Done transformation from old co-ordinated system (User-facing) to new co-ordinates system (for calculation and algorithm implementation)
+- Use A* search to explore (-1,-1) to (1,1)
+- User can change obstacle (center co-ordinates and diameter) in main.py file. (take input in old co-ordinate system only)
+- Console prints of obstacle and Path details. (In old co-ordinate system)
 
-## Name
-Choose a self-explaining name for your project.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+**Note-** I am using "Old co-ordinate", it is same which is mentioned in problem statement (-1,1)-->(1,1). <br />
+          "New co-ordinate system " is tranlated, rotated and scaled with old one. I used for implementation of A*.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## Documentation
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+- Documentation generator using Doxygen tool.
+- Go to miko/docs/html and open index.html in browser to view the documentation.
+- Main page is this README.md only.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+**Note-** Video is available (miko.mp4) to show how to compile and run.

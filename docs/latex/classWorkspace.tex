@@ -1,0 +1,335 @@
+\hypertarget{classWorkspace}{}\doxysection{Workspace Class Reference}
+\label{classWorkspace}\index{Workspace@{Workspace}}
+
+
+class workspace is contain methods to maintain the workspace ~\newline
+  
+
+
+
+
+{\ttfamily \#include $<$Workspace.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkspace_a03f18e730d1965a358808899f2104f3b}{Workspace}} (std\+::vector$<$ \mbox{\hyperlink{structObstacle}{Obstacle}} $>$ obstacle\+In\+Old)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classWorkspace}{Workspace} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorkspace_a2baaff81e89eea86a42e95c0bb22bb7c}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em Method do necessary steps for \doxylink{classWorkspace}{Workspace} setup. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{classWorkspace_a3d840144df04df9b7a5577c88a8bfa3c}{convert\+Old\+To\+New\+Point}} (\mbox{\hyperlink{structPoint}{Point}} old)
+\begin{DoxyCompactList}\small\item\em convert old co-\/ordinate point into new co-\/ordinate point \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classWorkspace_ac746146b07ee92a1162851bf1c700b51}{convert\+Old\+To\+New\+Diameter}} (double old)
+\begin{DoxyCompactList}\small\item\em convert old co-\/ordinate diameter into new co-\/ordinate diameter \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classWorkspace_a34851f710901e8491bcb1fe44eb386cd}{in\+Obstacle}} (\mbox{\hyperlink{structPoint}{Point}} point, \mbox{\hyperlink{structObstacle}{Obstacle}} obstacle)
+\begin{DoxyCompactList}\small\item\em check point is in obstacle or not \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorkspace_a675129c19e9a21bc438aa177c7725bb4}{print\+Grid}} ()
+\begin{DoxyCompactList}\small\item\em console prints of grids of new co-\/ordinates \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorkspace_addb00680e61f13d716fa3aa9949b92df}{print\+Obstacles}} ()
+\begin{DoxyCompactList}\small\item\em console prints of obstacle in old co-\/ordinates \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorkspace_abed6b0b86fc6b999cff236c2d391a50e}{set\+All\+To\+Free\+Space}} ()
+\begin{DoxyCompactList}\small\item\em Set the All To Free Space object Initalize workspace with all grids in obstacle(0), this method convert all grids to free space(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorkspace_a5872df8cdc82577eded0ee29d7989c6f}{explore}} ()
+\begin{DoxyCompactList}\small\item\em give start, end co-\/ordintes and explore the workspace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class workspace is contain methods to maintain the workspace ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{Workspace_8h_source_l00008}{8}} of file \mbox{\hyperlink{Workspace_8h_source}{Workspace.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWorkspace_a03f18e730d1965a358808899f2104f3b}\label{classWorkspace_a03f18e730d1965a358808899f2104f3b} 
+\index{Workspace@{Workspace}!Workspace@{Workspace}}
+\index{Workspace@{Workspace}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{Workspace()}{Workspace()}}
+{\footnotesize\ttfamily Workspace\+::\+Workspace (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structObstacle}{Obstacle}} $>$}]{obstacle\+In\+Old }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classWorkspace}{Workspace} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obstacle\+In\+Old} & It take param list of obstacles in old-\/coordinate system \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ this-\/>obstacleInOld\ =\ obstacleInOld;}
+\DoxyCodeLine{00008\ \ \ \ \ this-\/>\mbox{\hyperlink{classWorkspace_a2baaff81e89eea86a42e95c0bb22bb7c}{initialize}}();}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorkspace_ac746146b07ee92a1162851bf1c700b51}\label{classWorkspace_ac746146b07ee92a1162851bf1c700b51} 
+\index{Workspace@{Workspace}!convertOldToNewDiameter@{convertOldToNewDiameter}}
+\index{convertOldToNewDiameter@{convertOldToNewDiameter}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{convertOldToNewDiameter()}{convertOldToNewDiameter()}}
+{\footnotesize\ttfamily double Workspace\+::convert\+Old\+To\+New\+Diameter (\begin{DoxyParamCaption}\item[{double}]{old }\end{DoxyParamCaption})}
+
+
+
+convert old co-\/ordinate diameter into new co-\/ordinate diameter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em old} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double in new co-\/ordinate system 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ old\ *\ 10;}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWorkspace_a3d840144df04df9b7a5577c88a8bfa3c}\label{classWorkspace_a3d840144df04df9b7a5577c88a8bfa3c} 
+\index{Workspace@{Workspace}!convertOldToNewPoint@{convertOldToNewPoint}}
+\index{convertOldToNewPoint@{convertOldToNewPoint}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{convertOldToNewPoint()}{convertOldToNewPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPoint}{Point}} Workspace\+::convert\+Old\+To\+New\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPoint}{Point}}}]{old }\end{DoxyParamCaption})}
+
+
+
+convert old co-\/ordinate point into new co-\/ordinate point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em old} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structPoint}{Point} in new co-\/ordinate system 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPoint}{Point}}\ new\_coordinates;}
+\DoxyCodeLine{00039\ \ \ \ \ new\_coordinates.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}\ =\ 10\ -\/\ (10\ *\ old.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}});}
+\DoxyCodeLine{00040\ \ \ \ \ new\_coordinates.y\ =\ 10\ +\ (10\ *\ old.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}});}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ new\_coordinates;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWorkspace_a5872df8cdc82577eded0ee29d7989c6f}\label{classWorkspace_a5872df8cdc82577eded0ee29d7989c6f} 
+\index{Workspace@{Workspace}!explore@{explore}}
+\index{explore@{explore}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{explore()}{explore()}}
+{\footnotesize\ttfamily void Workspace\+::explore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+give start, end co-\/ordintes and explore the workspace. 
+
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ Pair\ src\ =\ std::make\_pair(20,\ 0);}
+\DoxyCodeLine{00104\ \ \ \ \ Pair\ dest\ =\ std::make\_pair(0,\ 20);}
+\DoxyCodeLine{00105\ \ \ \ \ exploration-\/>aStarSearch(grid,\ src,\ dest);}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWorkspace_a2baaff81e89eea86a42e95c0bb22bb7c}\label{classWorkspace_a2baaff81e89eea86a42e95c0bb22bb7c} 
+\index{Workspace@{Workspace}!initialize@{initialize}}
+\index{initialize@{initialize}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Workspace\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method do necessary steps for \doxylink{classWorkspace}{Workspace} setup. 
+
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ this-\/>obstacleInOld.size();\ i++)}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ obstacles.push\_back(\{\mbox{\hyperlink{classWorkspace_a3d840144df04df9b7a5577c88a8bfa3c}{convertOldToNewPoint}}(this-\/>obstacleInOld[i].center),\ \mbox{\hyperlink{classWorkspace_ac746146b07ee92a1162851bf1c700b51}{convertOldToNewDiameter}}(this-\/>obstacleInOld[i].diameter)\});}
+\DoxyCodeLine{00016\ \ \ \ \ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ this-\/>\mbox{\hyperlink{classWorkspace_abed6b0b86fc6b999cff236c2d391a50e}{setAllToFreeSpace}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ROW;\ i++)}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ COL;\ j++)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{structObstacle}{Obstacle}}\ obstacle\ :\ obstacles)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classWorkspace_a34851f710901e8491bcb1fe44eb386cd}{inObstacle}}(\{(double)i,\ (\textcolor{keywordtype}{double})j\},\ obstacle))}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ grid[i][j]\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWorkspace_a34851f710901e8491bcb1fe44eb386cd}\label{classWorkspace_a34851f710901e8491bcb1fe44eb386cd} 
+\index{Workspace@{Workspace}!inObstacle@{inObstacle}}
+\index{inObstacle@{inObstacle}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{inObstacle()}{inObstacle()}}
+{\footnotesize\ttfamily bool Workspace\+::in\+Obstacle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPoint}{Point}}}]{point,  }\item[{\mbox{\hyperlink{structObstacle}{Obstacle}}}]{obstacle }\end{DoxyParamCaption})}
+
+
+
+check point is in obstacle or not 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+{\em obstacle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{double}\ number\ =\ obstacle.\mbox{\hyperlink{structObstacle_af5e644f5eb077f3bc43be6a47f7cf51c}{diameter}}\ /\ 2.0;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{double}\ distance\ =\ sqrt(pow((point.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}\ +\ 1)\ -\/\ (obstacle.\mbox{\hyperlink{structObstacle_aa59cfccc918e1d3bc493b99f032db184}{center}}.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}\ +\ 1),\ 2)\ +\ pow((point.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}\ +\ 1)\ -\/\ (obstacle.\mbox{\hyperlink{structObstacle_aa59cfccc918e1d3bc493b99f032db184}{center}}.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}\ +\ 1),\ 2));}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ distance\ <=\ (number);}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWorkspace_a675129c19e9a21bc438aa177c7725bb4}\label{classWorkspace_a675129c19e9a21bc438aa177c7725bb4} 
+\index{Workspace@{Workspace}!printGrid@{printGrid}}
+\index{printGrid@{printGrid}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{printGrid()}{printGrid()}}
+{\footnotesize\ttfamily void Workspace\+::print\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+console prints of grids of new co-\/ordinates 
+
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ ROW;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ COL;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ m;\ j++)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (grid[i][j]\ ==\ 0)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ BOLDRED\ <<\ grid[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ RESET\ <<\ grid[i][j]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ std::cout\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWorkspace_addb00680e61f13d716fa3aa9949b92df}\label{classWorkspace_addb00680e61f13d716fa3aa9949b92df} 
+\index{Workspace@{Workspace}!printObstacles@{printObstacles}}
+\index{printObstacles@{printObstacles}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{printObstacles()}{printObstacles()}}
+{\footnotesize\ttfamily void Workspace\+::print\+Obstacles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+console prints of obstacle in old co-\/ordinates 
+
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{structObstacle}{Obstacle}}\ obstacle\ :\ this-\/>obstacleInOld)}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::cout\ <<\ MAGENTA\ <<\ \textcolor{stringliteral}{"{}Obstacle\ at\ ("{}}\ <<\ obstacle.center.x\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obstacle.center.y\ <<\ \textcolor{stringliteral}{"{})\ with\ diameter\ "{}}\ <<\ obstacle.diameter\ <<\ RESET\ <<\ std::endl;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWorkspace_abed6b0b86fc6b999cff236c2d391a50e}\label{classWorkspace_abed6b0b86fc6b999cff236c2d391a50e} 
+\index{Workspace@{Workspace}!setAllToFreeSpace@{setAllToFreeSpace}}
+\index{setAllToFreeSpace@{setAllToFreeSpace}!Workspace@{Workspace}}
+\doxysubsubsection{\texorpdfstring{setAllToFreeSpace()}{setAllToFreeSpace()}}
+{\footnotesize\ttfamily void Workspace\+::set\+All\+To\+Free\+Space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set the All To Free Space object Initalize workspace with all grids in obstacle(0), this method convert all grids to free space(1) 
+
+
+
+Definition at line \mbox{\hyperlink{Workspace_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{Workspace_8cpp_source}{Workspace.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ROW;\ i++)}
+\DoxyCodeLine{00093\ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ COL;\ j++)}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ grid[i][j]\ =\ 1;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Workspace.\+h\item 
+src/Workspace.\+cpp\end{DoxyCompactItemize}

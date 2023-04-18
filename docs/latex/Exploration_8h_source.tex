@@ -1,0 +1,48 @@
+\hypertarget{Exploration_8h_source}{}\doxysection{Exploration.\+h}
+\label{Exploration_8h_source}\index{include/Exploration.h@{include/Exploration.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Waypoints.h"{}}}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00008}\mbox{\hyperlink{classExploration}{00008}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classExploration}{Exploration}}}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00010}00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00014}\mbox{\hyperlink{structExploration_1_1cell}{00014}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structExploration_1_1cell}{cell}}}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00016}\mbox{\hyperlink{structExploration_1_1cell_a9d1335aacff4f2c0ea972a3de1722e92}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structExploration_1_1cell_a9d1335aacff4f2c0ea972a3de1722e92}{parent\_i}};\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00017}\mbox{\hyperlink{structExploration_1_1cell_a4ae4e73def25f81a2b427877a68591b1}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structExploration_1_1cell_a4ae4e73def25f81a2b427877a68591b1}{parent\_j}};\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00018}\mbox{\hyperlink{structExploration_1_1cell_ad4fcf5240505dd6db64d6bfa1da2901e}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structExploration_1_1cell_ad4fcf5240505dd6db64d6bfa1da2901e}{f}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00019}\mbox{\hyperlink{structExploration_1_1cell_ad9033acd641e9be1a3558e16a6ca7445}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structExploration_1_1cell_ad9033acd641e9be1a3558e16a6ca7445}{g}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00020}\mbox{\hyperlink{structExploration_1_1cell_a7607eca47b5e8630255040c98db1ca0e}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structExploration_1_1cell_a7607eca47b5e8630255040c98db1ca0e}{h}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00021}00021\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classExploration_ac28f0d18f4f06858a30dad9f2eac143d}{isValid}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classExploration_ac6a5090863f2f25d9e2d1b4219a855e6}{isUnBlocked}}(\textcolor{keywordtype}{int}\ grid[ROW][COL],\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classExploration_ab2447726d08a20b798fa9985a3c1fff8}{isDestination}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ Pair\ dest);}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classExploration_aff49da87a8f17ee1f9dcea4bff3d0415}{calculateHValue}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ Pair\ dest);}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExploration_ae5cbb8709893de2a3f6c475695adabde}{tracePath}}(\mbox{\hyperlink{structExploration_1_1cell}{cell}}\ cellDetails[][COL],\ Pair\ dest);}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExploration_a8417e091bc231f894e6da748417e7aef}{successor}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b,\ Pair\ dest,\ \textcolor{keywordtype}{int}\ grid[ROW][COL],\ std::string\ direction);}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExploration_a3ceb7c5c9b96b0d303f2a4f7b6f11e33}{aStarSearch}}(\textcolor{keywordtype}{int}\ grid[ROW][COL],\ Pair\ src,\ Pair\ dest);}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{structPoint}{Point}}\ \mbox{\hyperlink{classExploration_a22b888a3d58eb45691963dcda9e0c9d5}{convertnewToOldPoint}}(\mbox{\hyperlink{structPoint}{Point}}\ newPoint);}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00110}00110\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00111}00111\ \ \ \ \ \mbox{\hyperlink{structExploration_1_1cell}{cell}}\ cellDetails[ROW][COL];}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00112}00112\ \ \ \ \ \textcolor{keywordtype}{bool}\ foundDest\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00113}00113\ \ \ \ \ \textcolor{keywordtype}{bool}\ closedList[ROW][COL];}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00114}00114\ \ \ \ \ \textcolor{keywordtype}{double}\ gNew,\ hNew,\ fNew;\ \textcolor{comment}{//\ To\ store\ the\ 'g',\ 'h'\ and\ 'f'\ of\ the\ 8\ successors}}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00116}00116\ \ \ \ \ std::set<pPair>\ openList;}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00117}00117\ \ \ \ \ std::unique\_ptr<WaypointHandler>\ wayPointList\ =\ std::make\_unique<WaypointHandler>();}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00118}00118\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ directions\ =\ \{\textcolor{stringliteral}{"{}North"{}},\ \textcolor{stringliteral}{"{}South"{}},\ \textcolor{stringliteral}{"{}East"{}},\ \textcolor{stringliteral}{"{}West"{}},\ \textcolor{stringliteral}{"{}North-\/East"{}},\ \textcolor{stringliteral}{"{}North-\/West"{}},\ \textcolor{stringliteral}{"{}South-\/East"{}},\ \textcolor{stringliteral}{"{}South-\/West"{}}\};}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{int}\ successors[8][2]\ =\ \{\{-\/1,\ 0\},\ \{1,\ 0\},\ \{0,\ 1\},\ \{0,\ -\/1\},\ \{-\/1,\ 1\},\ \{-\/1,\ -\/1\},\ \{1,\ 1\},\ \{1,\ -\/1\}\};}
+\DoxyCodeLine{\Hypertarget{Exploration_8h_source_l00120}00120\ \};}
+
+\end{DoxyCode}

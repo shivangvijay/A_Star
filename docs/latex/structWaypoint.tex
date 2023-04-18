@@ -1,0 +1,220 @@
+\hypertarget{structWaypoint}{}\doxysection{Waypoint Struct Reference}
+\label{structWaypoint}\index{Waypoint@{Waypoint}}
+
+
+Struct to store information about waypoints.  
+
+
+
+
+{\ttfamily \#include $<$Waypoints.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structWaypoint_a782e006f3c1bcc6bf0a6c45a482987ca}{Waypoint}} (\mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}, \mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{structWaypoint_a50f3794351b4595e15f48732aa823c50}{parent}}, \mbox{\hyperlink{structPoint}{Point}} start\+Point)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{structWaypoint}{Waypoint} object. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structWaypoint_ac66d7f7f2b8cc97993f2e7dfb0a35d9d}{calculate\+Euclidean}} (\mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}, \mbox{\hyperlink{structPoint}{Point}} start\+Point)
+\begin{DoxyCompactList}\small\item\em Calculates the Euclidean distance between the current waypoint and the start point. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structWaypoint_a26bf9ba455c439990e9eb8849fc7740d}{calculate\+Manhathan}} (\mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}, \mbox{\hyperlink{structPoint}{Point}} start\+Point)
+\begin{DoxyCompactList}\small\item\em Calculates the Manhattan distance between the current waypoint and the start point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{structWaypoint_a50f3794351b4595e15f48732aa823c50}{parent}}
+\begin{DoxyCompactList}\small\item\em The parent waypoint. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}
+\begin{DoxyCompactList}\small\item\em The current waypoint. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structWaypoint}{Waypoint}} $\ast$ \mbox{\hyperlink{structWaypoint_a564974121f597b1411321e944a1787a4}{next}}
+\begin{DoxyCompactList}\small\item\em The next waypoint. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structWaypoint_a3dafa5d4d151b9c595f26ab0b7a6bfe7}{euclidean}}
+\begin{DoxyCompactList}\small\item\em The Euclidean distance from the start point to the current waypoint. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structWaypoint_a22bf48cb7c380ad13e2ecc873da5201c}{manhathan}}
+\begin{DoxyCompactList}\small\item\em The Manhattan distance from the start point to the current waypoint. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct to store information about waypoints. 
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00008}{8}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structWaypoint_a782e006f3c1bcc6bf0a6c45a482987ca}\label{structWaypoint_a782e006f3c1bcc6bf0a6c45a482987ca} 
+\index{Waypoint@{Waypoint}!Waypoint@{Waypoint}}
+\index{Waypoint@{Waypoint}!Waypoint@{Waypoint}}
+\doxysubsubsection{\texorpdfstring{Waypoint()}{Waypoint()}}
+{\footnotesize\ttfamily Waypoint\+::\+Waypoint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPoint}{Point}}}]{current,  }\item[{\mbox{\hyperlink{structPoint}{Point}}}]{parent,  }\item[{\mbox{\hyperlink{structPoint}{Point}}}]{start\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxylink{structWaypoint}{Waypoint} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & The current waypoint \\
+\hline
+{\em parent} & The parent waypoint \\
+\hline
+{\em start\+Point} & The start point \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00023}{23}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ this-\/>parent\ =\ \mbox{\hyperlink{structWaypoint_a50f3794351b4595e15f48732aa823c50}{parent}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ this-\/>current\ =\ \mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structWaypoint_a3dafa5d4d151b9c595f26ab0b7a6bfe7}{euclidean}}\ =\ \mbox{\hyperlink{structWaypoint_ac66d7f7f2b8cc97993f2e7dfb0a35d9d}{calculateEuclidean}}(this-\/>current,\ startPoint);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structWaypoint_a22bf48cb7c380ad13e2ecc873da5201c}{manhathan}}\ =\ \mbox{\hyperlink{structWaypoint_a26bf9ba455c439990e9eb8849fc7740d}{calculateManhathan}}(this-\/>current,\ startPoint);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structWaypoint_a564974121f597b1411321e944a1787a4}{next}}\ =\ NULL;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structWaypoint_ac66d7f7f2b8cc97993f2e7dfb0a35d9d}\label{structWaypoint_ac66d7f7f2b8cc97993f2e7dfb0a35d9d} 
+\index{Waypoint@{Waypoint}!calculateEuclidean@{calculateEuclidean}}
+\index{calculateEuclidean@{calculateEuclidean}!Waypoint@{Waypoint}}
+\doxysubsubsection{\texorpdfstring{calculateEuclidean()}{calculateEuclidean()}}
+{\footnotesize\ttfamily double Waypoint\+::calculate\+Euclidean (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPoint}{Point}}}]{current,  }\item[{\mbox{\hyperlink{structPoint}{Point}}}]{start\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the Euclidean distance between the current waypoint and the start point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & The current waypoint \\
+\hline
+{\em start\+Point} & The start point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double The Euclidean distance 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00040}{40}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(pow((\mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}\ -\/\ startPoint.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}),2)\ +\ pow((\mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}\ -\/\ startPoint.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}),2));}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structWaypoint_a26bf9ba455c439990e9eb8849fc7740d}\label{structWaypoint_a26bf9ba455c439990e9eb8849fc7740d} 
+\index{Waypoint@{Waypoint}!calculateManhathan@{calculateManhathan}}
+\index{calculateManhathan@{calculateManhathan}!Waypoint@{Waypoint}}
+\doxysubsubsection{\texorpdfstring{calculateManhathan()}{calculateManhathan()}}
+{\footnotesize\ttfamily double Waypoint\+::calculate\+Manhathan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPoint}{Point}}}]{current,  }\item[{\mbox{\hyperlink{structPoint}{Point}}}]{start\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the Manhattan distance between the current waypoint and the start point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & The current waypoint \\
+\hline
+{\em start\+Point} & The start point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double The Manhattan distance 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00053}{53}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (abs(\mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}}\ -\/\ startPoint.\mbox{\hyperlink{structPoint_ab99c56589bc8ad5fa5071387110a5bc7}{x}})\ +\ abs(\mbox{\hyperlink{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}{current}}.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}\ -\/\ startPoint.\mbox{\hyperlink{structPoint_afa38be143ae800e6ad69ce8ed4df62d8}{y}}));}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d}\label{structWaypoint_aa44200e6479a9c8f32f7fdfb522be83d} 
+\index{Waypoint@{Waypoint}!current@{current}}
+\index{current@{current}!Waypoint@{Waypoint}}
+\doxysubsubsection{\texorpdfstring{current}{current}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPoint}{Point}} Waypoint\+::current}
+
+
+
+The current waypoint. 
+
+
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00011}{11}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+\Hypertarget{structWaypoint_a3dafa5d4d151b9c595f26ab0b7a6bfe7}\label{structWaypoint_a3dafa5d4d151b9c595f26ab0b7a6bfe7} 
+\index{Waypoint@{Waypoint}!euclidean@{euclidean}}
+\index{euclidean@{euclidean}!Waypoint@{Waypoint}}
+\doxysubsubsection{\texorpdfstring{euclidean}{euclidean}}
+{\footnotesize\ttfamily double Waypoint\+::euclidean}
+
+
+
+The Euclidean distance from the start point to the current waypoint. 
+
+
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00013}{13}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+\Hypertarget{structWaypoint_a22bf48cb7c380ad13e2ecc873da5201c}\label{structWaypoint_a22bf48cb7c380ad13e2ecc873da5201c} 
+\index{Waypoint@{Waypoint}!manhathan@{manhathan}}
+\index{manhathan@{manhathan}!Waypoint@{Waypoint}}
+\doxysubsubsection{\texorpdfstring{manhathan}{manhathan}}
+{\footnotesize\ttfamily double Waypoint\+::manhathan}
+
+
+
+The Manhattan distance from the start point to the current waypoint. 
+
+
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00014}{14}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+\Hypertarget{structWaypoint_a564974121f597b1411321e944a1787a4}\label{structWaypoint_a564974121f597b1411321e944a1787a4} 
+\index{Waypoint@{Waypoint}!next@{next}}
+\index{next@{next}!Waypoint@{Waypoint}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structWaypoint}{Waypoint}}$\ast$ Waypoint\+::next}
+
+
+
+The next waypoint. 
+
+
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00012}{12}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+\Hypertarget{structWaypoint_a50f3794351b4595e15f48732aa823c50}\label{structWaypoint_a50f3794351b4595e15f48732aa823c50} 
+\index{Waypoint@{Waypoint}!parent@{parent}}
+\index{parent@{parent}!Waypoint@{Waypoint}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPoint}{Point}} Waypoint\+::parent}
+
+
+
+The parent waypoint. 
+
+
+
+Definition at line \mbox{\hyperlink{Waypoints_8h_source_l00010}{10}} of file \mbox{\hyperlink{Waypoints_8h_source}{Waypoints.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Waypoints.\+h\end{DoxyCompactItemize}
