@@ -7,7 +7,7 @@
 
 Run in terminal
 ````
-- git clone https://gitlab.com/shivangvijay/miko.git
+$ git clone https://gitlab.com/shivangvijay/miko.git
 ````
 
 - If docker and docker-compose install in the system just you need to run one command:- 
