@@ -5,6 +5,11 @@
 
 ## Compilling Instructions
 
+Run in terminal
+````
+- git clone https://gitlab.com/shivangvijay/miko.git
+````
+
 - If docker and docker-compose install in the system just you need to run one command:- 
 
 ````
@@ -54,7 +59,6 @@ Run the following commands in terminal:-
 ````
 $ sudo curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
-
 ````
 
 ## Approch and Assumptions:-
@@ -80,3 +84,5 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 - Documentation generator using Doxygen tool.
 - Go to miko/docs/html and open index.html in browser to view the documentation.
 - Main page is this README.md only.
+
+**Note-** Video is available (miko.mp4) to show how to compile and run.
