@@ -2,13 +2,13 @@
 
 Run in terminal
 ````
-$ git clone https://gitlab.com/shivangvijay/miko.git
+$ git clone https://github.com/shivangvijay/A_Star.git
 ````
 
 - If docker and docker-compose install in the system just you need to run one command:- 
 
 ````
-$ cd miko
+$ cd A_Star
 $ docker-compose up --build
 ````
 
@@ -17,14 +17,14 @@ $ docker-compose up --build
 - If don't want to install or use the docker, follow below commands:-
 
 ````
-$ cd miko
+$ cd A_Star
 $ mkdir build && cd build
 $ cmake ..
 $ make
 $ ./Explore
 ````
 
-**Note-** I optimize the docker image by 2 step build, Check the size of docker image (miko:1.0.0) using ```` $ docker images ````, It is just ~12.2 MB.
+**Note-** I optimize the docker image by 2 step build, Check the size of docker image (A_Star:1.0.0) using ```` $ docker images ````, It is just ~12.2 MB.
 
 ## Install Docker:-
 
@@ -77,7 +77,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 ## Documentation
 
 - Documentation generator using Doxygen tool.
-- Go to miko/docs/html and open index.html in browser to view the documentation.
+- Go to A_Star/docs/html and open index.html in browser to view the documentation.
 - Main page is this README.md only.
 
-**Note-** Video is available (miko.mp4) to show how to compile and run.
+**Note-** Video is available (A_Star.mp4) to show how to compile and run.
