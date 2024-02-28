@@ -1,8 +1,3 @@
-# Miko (Shivang Vijay, shivangvijay@gmail.com)
-
-![Alt text](miko.png)
-
-
 ## Compilling Instructions
 
 Run in terminal
